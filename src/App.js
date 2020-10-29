@@ -24,10 +24,9 @@ class App extends React.Component {
    return (
       <div>
         <div className='mainContainer'>
+          <General />
           <Education />
           <Experience />
-          <General />
-          <p>{this.state.count}</p>
         </div>
         <button onClick={this.handleCount}>Add!</button>
       </div>

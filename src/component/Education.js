@@ -1,8 +1,15 @@
 import React from 'react'
 
-function Education(){
+function Education(props){
     return (
-        <h1>Education</h1>
+        <div>
+            <form>
+                <input 
+                    name="institution"
+                    value=''
+                />
+            </form>
+        </div>
     )
 }
 
