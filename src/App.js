@@ -1,25 +1,41 @@
-import logo from './logo.svg';
 import './App.css';
+import React, {useState} from 'react'
+import Education from './component/Education'
+import Experience from './component/Experience'
+import General from './component/General'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+
+  constructor(){
+    super()
+    this.state = {
+      count: 0,
+    }
+    this.handleCount = this.handleCount.bind(this)
+  }
+  handleCount(){
+    this.setState((prev) => {
+      return {count: prev.count + 1}
+      }
+    )
+  }
+  
+  render(){
+   return (
+      <div>
+        <div className='mainContainer'>
+          <Education />
+          <Experience />
+          <General />
+          <p>{this.state.count}</p>
+        </div>
+        <button onClick={this.handleCount}>Add!</button>
+      </div>
+      )
+    }
 }
 
-export default App;
+
+
+
+export default App
