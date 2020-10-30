@@ -21,22 +21,34 @@ class General extends React.Component{
 
 
     render(){
+        const {dateBirth, placeBirth, gender, nationality, address , telephone, email} = this.props.personalDetails
         let displayState = this.state.display ? {display: 'inline'} : {display: 'none'};
         return (
             <div className="personalDisplay">
                 <h1>Personal details</h1>
                 <div className='personalData'>
-                <hr />
-                    <p>Date of Birth: {this.props.personalDetails.dateBirth}</p>
-                    <p>Place of Birth:  {this.props.personalDetails.placeBirth}</p>
-                    <p>Gender:  {this.props.personalDetails.gender ? "male" : "female"}</p>
-                    <p>Nationality: {this.props.personalDetails.nationality}</p>
-                    <p>Adress: {this.props.personalDetails.address}</p>
-                    <p>Telephone: {this.props.personalDetails.telephone}</p>
-                    <p>E-mail: {this.props.personalDetails.email}</p>
+                    <hr />
+                    <p>Date of Birth:  {dateBirth}</p>
+                    <p>Place of Birth:  {placeBirth}</p>
+                    <p>Gender:  {gender ? "male" : "female"}</p>
+                    <p>Nationality: {nationality}</p>
+                    <p>Adress: {address}</p>
+                    <p>Telephone: {telephone}</p>
+                    <p>E-mail: {email}</p>
                     <hr />
                     <button onClick={this.props.stateChanger}/>
                 </div>
+                <form  className="personalForm">
+                    <input
+                        placeholder="Enter your birth date"
+                        value={this.dateBirth}
+                        id="dateBirth"
+                        type="text"
+                        onChange={this.props.handlePersonalChange}
+                    />
+
+                    <button>Add</button>
+                </form>
             </div>
         )
     }

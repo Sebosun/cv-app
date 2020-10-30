@@ -22,6 +22,7 @@ class App extends React.Component {
     }
     this.handleCount = this.handleCount.bind(this)
     this.buttonHandler = this.buttonHandler.bind(this)
+    this.handlePersonalChange = this.handlePersonalChange.bind(this)
   }
 
   handleCount(){
@@ -31,32 +32,46 @@ class App extends React.Component {
     )
   }
 
-  buttonHandler(){
+  buttonHandler(event){
+    event.preventDefault();
+    event.stopPropagation();
+    const {name, value} = event.target
     this.setState((prev) => {
       return{
         // spread operator, spreads the entire prev.personal details while modifying one value
         // that value being ofc dateBirth here
         // and here we first access the object, and then within that object we access another
-        // object and spread it
-        
+        // object and spread it 
         personalDetails: {
           ...prev.personalDetails,
-          dateBirth: "Tommorow"
+          [name]: value,
         }
       }
-    }
-    )
+    })
   }
   
+  handlePersonalChange(event){
+    event.preventDefault();
+    event.stopPropagation();
+    const {name, value} = event.target
+    this.setState((prev) => {
+     return { personalDetails: 
+        {
+        ...prev.personalDetails,
+        [name]: value,
+        }
+      }
+    })
+  }
+
   render(){
    return (
       <div>
         <div className='mainContainer'>
-          <General personalDetails={this.state.personalDetails} stateChanger = {this.buttonHandler}/>
+          <General personalDetails={this.state.personalDetails} stateChanger= {this.handlePersonalChange}/>
           <Education />
           <Experience />
         </div>
-        <button onClick={this.handleCount}>Add!</button>
       </div>
       )
     }
