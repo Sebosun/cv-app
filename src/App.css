@@ -3,11 +3,17 @@ body{
   color: white;
 }
 
+.personalDisplay{
+  margin: 0 auto;
+  padding: 3rem;
+}
+
+.personalDisplay > h1{
+  color: rgb(20, 235, 206);
+}
+
 .mainContainer{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
+
 }
 
 button{
