@@ -5,16 +5,37 @@ body{
 
 .personalDisplay{
   margin: 0 auto;
-  padding: 3rem;
+  padding: 1rem 3rem 1rem 3rem;
 }
 
 .personalDisplay > h1{
   color: rgb(20, 235, 206);
 }
 
+.experience{
+  margin: 0 auto;
+  padding: 1rem 3rem 1rem 3rem;
+}
+
+.experience > h1{
+  color: rgb(20, 235, 206);
+}
+
 .mainContainer{
 
 }
+
+.personalForm{
+  margin: 0 auto;
+  /* padding: 3rem; */
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+input{
+  margin-left: 1rem;
+}
+
 
 button{
   display: flex;
