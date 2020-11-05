@@ -21,6 +21,20 @@ body{
   color: rgb(20, 235, 206);
 }
 
+.education{
+  margin: 0 auto;
+  padding: 1rem 3rem 1rem 3rem;
+}
+
+.education >h1{
+  color: rgb(20, 235, 206);
+}
+
+.educationDisplay{
+  display:grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 100px;
+}
+
 .mainContainer{
 
 }

@@ -19,6 +19,11 @@ class App extends React.Component {
         telephone: '5714875',
         email: 'jokerhahaha@gmail.com'
       },
+      education: [
+        ['Szkola Piulsudzkiego nr 11','2011', '2015', 'Klepanie Betonu'],
+        ['Institution2','Year started2', 'Year completed2', 'Major2'],
+        ['Institution3','Year started3', 'Year completed3', 'Major3'],
+      ],
       experience: [
         ['Pieczarki sp. zoo', '2012', '2014', 'Ledzwiowy'],
         ['Spawarka zmywarko suszarka', '1001', '2015', 'Kierownik'],
@@ -46,9 +51,9 @@ class App extends React.Component {
    return (
       <div>
         <div className='mainContainer'>
-          <General personalDetails={this.state.personalDetails} stateChanger={this.handlePersonalChange}/>
-          <Education exp={this.state.experience}/>
-          <Experience />
+          {/* <General personalDetails={this.state.personalDetails} stateChanger={this.handlePersonalChange}/> */}
+          <Education  edu={this.state.education}/>
+          <Experience exp={this.state.experience}/>
         </div>
       </div>
       )
