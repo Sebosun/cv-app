@@ -32,6 +32,7 @@ class App extends React.Component {
     }
     this.handlePersonalChange = this.handlePersonalChange.bind(this)
     this.handleDisplayChange = this.handleDisplayChange.bind(this);
+    this.handleEduChanges = this.handleEduChanges.bind(this);
   }
   
   handlePersonalChange(event){
@@ -59,12 +60,27 @@ class App extends React.Component {
     })
   }
 
+  handleEduChanges(event){
+    const {id, value, name} = event.target 
+    console.log(id, name, value)
+    let eduCopy = JSON.parse(JSON.stringify(this.state.education))
+    eduCopy[id][name] = value
+    this.setState((prev) =>{
+     
+      return {
+        education: eduCopy
+      }
+    })
+  }
+
+
+
   render(){
    return (
       <div>
         <div className='mainContainer'>
           {/* <General personalDetails={this.state.personalDetails} stateChanger={this.handlePersonalChange}/> */}
-          <Education eduChange={this.handleDisplayChange} edu={this.state.education}/>
+          <Education stateChange={this.handleEduChanges} eduChange={this.handleDisplayChange} edu={this.state.education}/>
           <Experience exp={this.state.experience}/>
         </div>
       </div>
