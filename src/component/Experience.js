@@ -17,7 +17,7 @@ function Experience(props){
             <h1>Experience</h1>
             <div>
                 <hr />
-                {console.log(printGowno())}
+                {/* {console.log(printGowno())} */}
                 <hr />
             </div>
         </div>

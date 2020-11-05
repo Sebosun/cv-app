@@ -20,17 +20,18 @@ class App extends React.Component {
         email: 'jokerhahaha@gmail.com'
       },
       education: [
-        ['Szkola Piulsudzkiego nr 11','2011', '2015', 'Klepanie Betonu'],
-        ['Institution2','Year started2', 'Year completed2', 'Major2'],
-        ['Institution3','Year started3', 'Year completed3', 'Major3'],
+        ['Szkola Piulsudzkiego nr 11','2011', '2015', 'Klepanie Betonu', true],
+        ['Institution2','Year started2', 'Year completed2', 'Major2', false],
+        ['Institution3','Year started3', 'Year completed3', 'Major3', false],
       ],
       experience: [
-        ['Pieczarki sp. zoo', '2012', '2014', 'Ledzwiowy'],
+        ['Pieczarki sp. zoo', '2012', '2014', 'Ledzwiowy',],
         ['Spawarka zmywarko suszarka', '1001', '2015', 'Kierownik'],
         ['Ciasowianka', '2016', '2018', 'Bagaz']
       ],
     }
     this.handlePersonalChange = this.handlePersonalChange.bind(this)
+    this.handleDisplayChange = this.handleDisplayChange.bind(this);
   }
   
   handlePersonalChange(event){
@@ -47,12 +48,23 @@ class App extends React.Component {
     })
   }
 
+  handleDisplayChange(index){
+    console.log(index)
+    let eduCopy = JSON.parse(JSON.stringify(this.state.education))
+      this.setState((prev) =>{
+      eduCopy[index][4] = prev.education[index][4] ? false : true
+        return{
+          education: eduCopy
+        }
+    })
+  }
+
   render(){
    return (
       <div>
         <div className='mainContainer'>
           {/* <General personalDetails={this.state.personalDetails} stateChanger={this.handlePersonalChange}/> */}
-          <Education  edu={this.state.education}/>
+          <Education eduChange={this.handleDisplayChange} edu={this.state.education}/>
           <Experience exp={this.state.experience}/>
         </div>
       </div>
