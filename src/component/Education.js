@@ -16,6 +16,7 @@ function Education(props){
                             <div>{value[3]}</div>
                             {/* just calling eduChange(index) wont work, we have to do () = > educhange(index) */}
                             <button onClick={()=>props.eduChange(index)}>Edit</button>
+                            {/* #TODO ADD A DELETE BUTTON  */}
                         </div>
                         <form style={{display: value[4] ? 'grid':'none'}} className="educationDisplay">
                             <input 
