@@ -37,7 +37,7 @@ function Education(props){
                             <input 
                                 value={value[2]}
                                 name="2"    
-                                id={index}
+                                id=''
                                 type='date'
                                 onChange={props.stateChange}
                             />
@@ -57,34 +57,42 @@ function Education(props){
                  <button onClick={() => changeShowForm(showForm ? false : true)}>Add</button> 
                  <div style={{display: showForm ? 'grid': 'none'}}>
                     <form className="educationDisplay">
-                            <input 
-                                    value=""
-                                    name="0"
-                                    // id={}
-                                    type="text"
-                                    // onChange={props.stateChange}
-                            />
-                            <input 
-                                    value=""
-                                    name="1"
-                                    // id={}
-                                    type='date'
-                                    // onChange={props.stateChange}
-                                    />
-                            <input 
-                                    value=""
-                                    name="2"    
-                                    // id={}
-                                    type='date'
-                                    // onChange={props.stateChange}
-                            />
-                            <input 
-                                    value=""
-                                    name="3"
-                                    // id={}
-                                    type='text'
-                                    // onChange={props.stateChange}
-                            />
+                        <label for="institution">Institution
+                                <input 
+                                        value={props.eduNew[0]}
+                                        name='institution'
+                                        id='0'
+                                        type="text"
+                                        onChange={props.eduNewChange}
+                                />
+                            </label>
+                            <label for="date-started">Date started
+                                <input 
+                                        value={props.eduNew[1]}
+                                        name='date-started'
+                                        id='1'
+                                        type='date'
+                                        onChange={props.eduNewChange}
+                                />
+                            </label>
+                            <label for="2">Date ended
+                                <input 
+                                        value={props.eduNew[2]}
+                                        name='date-ended'
+                                        id='2'
+                                        type='date'
+                                        onChange={props.eduNewChange}
+                                />
+                                </label>
+                            <label for="major">Major
+                                <input 
+                                        value={props.eduNew[3]}
+                                        name="major"
+                                        id='3'
+                                        type='text'
+                                        onChange={props.eduNewChange}
+                                />
+                            </label>
                             <button>Confirm</button>
                             </form>
                  </div>

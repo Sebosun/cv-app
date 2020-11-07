@@ -13,7 +13,8 @@ class General extends React.Component{
 
     }
 
-    visibilityHandler(){
+    visibilityHandler(event){
+        event.preventDefault()
         this.setState(prev =>{
             return {display: !prev.display }
             }
@@ -37,6 +38,7 @@ class General extends React.Component{
                     <p>Adress: {address}</p>
                     <p>Telephone: {telephone}</p>
                     <p>E-mail: {email}</p>
+                    <button onClick={this.visibilityHandler}>{this.state.display ? 'Close':'Edit'}</button>
                     <hr />
                 </div>
                 <form  className="personalForm" style={{display: this.state.display ? "grid": "none"}}>
@@ -90,7 +92,7 @@ class General extends React.Component{
                         <input
                         placeholder="Enter your adress"
                         value={address}
-                        name="adress"
+                        name="address"
                         type="text"
                         onChange={this.props.stateChanger}
                     /></label>
@@ -113,12 +115,6 @@ class General extends React.Component{
                         value={email}
                         onChange={this.props.stateChanger}
                     /></label>
-
-
-
-
-
-                    <button>Add</button>
                 </form>
             </div>
         )
