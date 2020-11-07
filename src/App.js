@@ -35,6 +35,7 @@ class App extends React.Component {
     this.handleDisplayChange = this.handleDisplayChange.bind(this);
     this.handleEduChanges = this.handleEduChanges.bind(this);
     this.changeNew = this.changeNew.bind(this);
+    this.submitEdu = this.submitEdu.bind(this);
   }
   
   handlePersonalChange(event){
@@ -80,10 +81,27 @@ class App extends React.Component {
     this.setState((prev) =>{
       prev.eduNew[id] = value
       return {
-        classNam: prev.eduNew
+        eduNew: prev.eduNew
       }
     })
   }
+
+  submitEdu(event){
+    event.preventDefault()
+    // console.log(this.state.education.push(this.state.eduNew[1]))
+    console.log(this.state.eduNew)
+    console.log(this.state.education)
+    this.setState((prev) => {
+
+    
+      return{
+        // needed to nest here ...prev.eduNew into a new his own array - took me quite a bit to realize that
+        education: [...prev.education, [...prev.eduNew]],
+        eduNew: [' ', ' ', ' ', ' ', false],
+      }
+    }
+  )
+}
 
 
   render(){
@@ -91,7 +109,7 @@ class App extends React.Component {
       <div>
         <div className='mainContainer'>
           <General personalDetails={this.state.personalDetails} stateChanger={this.handlePersonalChange}/>
-          <Education stateChange={this.handleEduChanges}  eduChange={this.handleDisplayChange} eduNewChange={this.changeNew} eduNew={this.state.eduNew} edu={this.state.education}/>
+          <Education stateChange={this.handleEduChanges} submitEdu={this.submitEdu}  eduChange={this.handleDisplayChange} eduNewChange={this.changeNew} eduNew={this.state.eduNew} edu={this.state.education}/>
           <Experience exp={this.state.experience}/>
         </div>
       </div>

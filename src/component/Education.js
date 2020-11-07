@@ -56,7 +56,7 @@ function Education(props){
                 })}
                  <button onClick={() => changeShowForm(showForm ? false : true)}>Add</button> 
                  <div style={{display: showForm ? 'grid': 'none'}}>
-                    <form className="educationDisplay">
+                    <form className="educationDisplay" onSubmit={props.submitEdu}>
                         <label for="institution">Institution
                                 <input 
                                         value={props.eduNew[0]}
