@@ -36,6 +36,7 @@ class App extends React.Component {
     this.handleEduChanges = this.handleEduChanges.bind(this);
     this.changeNew = this.changeNew.bind(this);
     this.submitEdu = this.submitEdu.bind(this);
+    this.deleteItem = this.deleteItem.bind(this);
   }
   
   handlePersonalChange(event){
@@ -92,7 +93,7 @@ class App extends React.Component {
     console.log(this.state.eduNew)
     console.log(this.state.education)
     this.setState((prev) => {
-
+      
     
       return{
         // needed to nest here ...prev.eduNew into a new his own array - took me quite a bit to realize that
@@ -102,14 +103,28 @@ class App extends React.Component {
     }
   )
 }
+  deleteItem(index, itemClass, mode){
+    // console.log(index, itemClass)
+    // console.log(itemClass[index])
+    this.setState((prev) => {
+      if (mode === "education"){
+        let newEdu = [...prev.education]
+        newEdu.splice(index, 1)
+        return{
+          education: newEdu
+        }
+      }
+      
+    })
+  }
 
 
   render(){
    return (
       <div>
         <div className='mainContainer'>
-          <General personalDetails={this.state.personalDetails} stateChanger={this.handlePersonalChange}/>
-          <Education stateChange={this.handleEduChanges} submitEdu={this.submitEdu}  eduChange={this.handleDisplayChange} eduNewChange={this.changeNew} eduNew={this.state.eduNew} edu={this.state.education}/>
+          {/* <General personalDetails={this.state.personalDetails} stateChanger={this.handlePersonalChange}/> */}
+          <Education deleteItem={this.deleteItem} stateChange={this.handleEduChanges} submitEdu={this.submitEdu}  eduChange={this.handleDisplayChange} eduNewChange={this.changeNew} eduNew={this.state.eduNew} edu={this.state.education}/>
           <Experience exp={this.state.experience}/>
         </div>
       </div>
