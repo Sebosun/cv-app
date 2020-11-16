@@ -1,24 +1,28 @@
-import React from 'react'
+import React, {useState} from 'react'
 
 function Experience(props){
 
-    // here we would use .map on props.exp to print out the complete gowniak
-    let printGowno = () => {
-        for (let i; i < 15; i++){
-            return(
-                <h1>Dupa</h1>
-            
-            )
-        }
-    }
+    const [showForm, changeShowForm] = useState(false)
 
     return (
         <div className="experience">
             <h1>Experience</h1>
+            <hr />
             <div>
-                <hr />
-                {/* {console.log(printGowno())} */}
-                <hr />
+                {props.exp.map((value, index) => {
+                    return (
+                        <div className='expDisplay'>
+                            <div>{value[0]}</div>
+                            <div>{value[1]}</div>
+                            <div>{value[2]}</div>
+                            <div>{value[3]}</div>
+                            
+                        </div>
+                    )
+                    })
+                }
+                    
+                    
             </div>
         </div>
     )

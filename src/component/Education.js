@@ -16,9 +16,9 @@ function Education(props){
                             <div>{value[1]}</div>
                             <div>{value[2]}</div>
                             <div>{value[3]}</div>
-                            {/* just calling eduChange(index) wont work, we have to do () = > educhange(index) */}
-                            <button onClick={()=>props.eduChange(index)}>Edit</button>
-                            <button onClick={()=>props.deleteItem(index, props.edu, 'education')}>Delete</button>
+                            {/* just calling handleDisplayChange(index) wont work, we have to do () = > handleDisplayChange(index) */}
+                            <button onClick={()=>props.handleDisplayChange(index, props.mode)}>Edit</button>
+                            <button onClick={()=>props.deleteItem(index, props.edu, props.mode)}>Delete</button>
                             {/* #TODO ADD A DELETE BUTTON  */}
                         </div>
                         <form style={{display: value[4] ? 'grid':'none'}} className="educationDisplay">
