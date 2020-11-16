@@ -28,7 +28,7 @@ class General extends React.Component{
         let displayState = this.state.display ? {display: 'inline'} : {display: 'none'};
         return (
             <div className="personalDisplay">
-                <h1>Personal details</h1>
+                <h1>personal details</h1>
                 <div className='personalData'>
                     <hr />
                     <p>Date of Birth:  {dateBirth}</p>
